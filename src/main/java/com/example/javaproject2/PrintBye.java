@@ -1,6 +1,7 @@
 package com.example.javaproject2;
-public class PrintHello {
+
+public class PrintBye {
     public void print(){
-        System.out.println("hello");
+        System.out.println("Bye");
     }
 }
