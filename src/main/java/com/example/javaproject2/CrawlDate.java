@@ -1,16 +1,11 @@
 package com.example.javaproject2;
-
+import java.time.LocalDateTime;
 public class CrawlDate {
+    private LocalDateTime lastCrawlDateTime;
 
-    public class CrawlDate {
-        private LocalDateTime lastCrawlDateTime;
-        // alt + insert
-
-        public CrawlDate(LocalDateTime lastCrawlDateTime) {
-            this.lastCrawlDateTime = lastCrawlDateTime;
-        }
+    // alt + insert
+    public CrawlDate(LocalDateTime
+                             lastCrawlDateTime) {
+        this.lastCrawlDateTime = lastCrawlDateTime;
     }
-
-
 }
-//checkout 개념은 브랜치이동.
