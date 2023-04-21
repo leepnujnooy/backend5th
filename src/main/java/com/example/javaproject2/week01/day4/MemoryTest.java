@@ -1,4 +1,4 @@
-package com.example.javaproject2.week01;
+package com.example.javaproject2.week01.day4;
 
 public class MemoryTest {
 

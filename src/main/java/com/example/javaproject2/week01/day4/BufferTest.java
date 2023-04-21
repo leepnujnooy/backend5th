@@ -1,6 +1,7 @@
-package com.example.javaproject2.week01;
+package com.example.javaproject2.week01.day4;
 
-import java.io.BufferedReader;
+import com.example.javaproject2.week01.day4.Buffer;
+
 import java.io.IOException;
 
 public class BufferTest {
@@ -8,7 +9,7 @@ public class BufferTest {
 
         Buffer bf = new Buffer();
 
-        bf.readALine();
+        bf.SumOfTwoNumbers();
 
 
     }

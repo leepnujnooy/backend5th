@@ -1,4 +1,4 @@
-package com.example.javaproject2.week01;
+package com.example.javaproject2.week01.day4;
 
 public class PrintFExample { //꼬북이
     void print(){ //꼬북이의 프린트스킬

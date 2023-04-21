@@ -1,6 +1,6 @@
-package com.example.javaproject2.week01;
+package com.example.javaproject2.week01.day4;
 
-import java.util.Scanner;
+import com.example.javaproject2.week01.day4.ScannerExample;
 
 public class ScannerExampleTest {
     public static void main(String[] args) {

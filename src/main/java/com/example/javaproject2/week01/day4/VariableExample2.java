@@ -1,4 +1,4 @@
-package com.example.javaproject2.week01;
+package com.example.javaproject2.week01.day4;
 import com.example.javaproject2.PrintHello;
 
 public class VariableExample2 {
