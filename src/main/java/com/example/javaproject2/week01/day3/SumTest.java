@@ -1,4 +1,6 @@
-package com.example.javaproject2;
+package com.example.javaproject2.week01.day3;
+
+import com.example.javaproject2.week01.day3.Sum;
 
 public class SumTest {
     public static void main(String[] args) {
