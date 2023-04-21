@@ -11,12 +11,15 @@ public class SpaceInvader {
 
         System.out.printf("%s 님 시작합니다 \n",yourName);
 
-        gameStart.moveLeft();
-        gameStart.moveLeft();
-        gameStart.moveLeft();
-        gameStart.moveRight();
-        gameStart.moveRight();
-        gameStart.moveRight();
+        //다른 클래스의 멤버변수 접근은 이렇게 하면 된다.
+        System.out.println(gameStart.location);
 
+
+        gameStart.moveLeft();
+        gameStart.moveLeft();
+        gameStart.moveLeft();
+        gameStart.moveRight();
+        gameStart.moveRight();
+        gameStart.moveRight(); //static 카공족같은아이들. jvm이 실행되는 동안은 계속 메모리를 차지함... 사장님은 gc를 돌리고싶어함.
     }
 }
