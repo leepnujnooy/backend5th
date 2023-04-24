@@ -8,7 +8,7 @@ public class Point {
     public int y;
 
 
-    및boolean isSameXY(){
+    boolean isSameXY(){
         return x==y;
     }
 }
