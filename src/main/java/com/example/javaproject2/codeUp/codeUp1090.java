@@ -5,10 +5,11 @@ import java.util.Scanner;
 public class codeUp1090 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int r = sc.nextInt();
-        int n = sc.nextInt();
+        long a = sc.nextLong();
+        long r = sc.nextLong();
+        long n = sc.nextLong();
 
-        System.out.printf("%s",String.valueOf( a * Math.pow(r,n-1)));
+        long answer = (long) (a * Math.pow(r,n-1));
+        System.out.println(answer);
     }
 }
