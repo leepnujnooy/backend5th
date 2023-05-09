@@ -1,7 +1,7 @@
 package com.example.javaproject2.week04.day02;
 
 public class MakeDiamond {
-    public String spaceChar = "";
+    public String spaceChar;
     public int height;
 
     public MakeDiamond(String spaceChar, int height){
@@ -23,7 +23,7 @@ public class MakeDiamond {
 
 
 
-    public String makePyramidLine(int height,int i){
+    public String makePyramidLine(int i){
         return String.format("%s%s%s\n",spaceChar.repeat(height-1-i),"*".repeat(2*i+1),spaceChar.repeat(height-1-i));
     }
 
@@ -31,11 +31,13 @@ public class MakeDiamond {
     public void printPyramid(){
         //정 피라미드 구조. repeat 메서드 사용
         for (int i = 0; i < height; i++) {
-            System.out.print(makePyramidLine(height,i));
+            System.out.print(makePyramidLine(i));
         }
     }
 
-
+//    public String makeRevPyramidLine(int j){
+//        return String.format("%s%s%s\n",spaceChar);
+//    }
     public void printRevPyramid(){
         //역 피라미드 구조. 이중 포문 사용
         for (int i = height-1; i > 0 ; i--) {

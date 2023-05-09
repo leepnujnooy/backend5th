@@ -21,13 +21,19 @@ public class RSP {
 
     }
 
+    public void printResult(String value){
+        System.out.println(value);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int user = sc.nextInt();
         int com = sc.nextInt();
 
         RSP rsp = new RSP();
-        System.out.println(rsp.gameResult(user , com));
+
+
+        rsp.gameResult(1,0);
 
     }
 }
