@@ -1,4 +1,4 @@
-package com.example.javaproject2.week04.day03;
+package com.example.javaproject2.week04.day03.Figure;
 
 public abstract class ShapeDrawer2 {
 

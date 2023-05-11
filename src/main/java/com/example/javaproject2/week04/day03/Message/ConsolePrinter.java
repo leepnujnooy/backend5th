@@ -6,7 +6,9 @@ package com.example.javaproject2.week04.day03.Message;
 //implements > 구현 하겠다는 말
 public class ConsolePrinter implements StringPrinter{
     @Override
-    public void print(String message) {
-        System.out.println(message);
+    public void print(String message, int i) {
+        for (int j = 0; j < i; j++) {
+            System.out.println(message);
+        }
     }
 }

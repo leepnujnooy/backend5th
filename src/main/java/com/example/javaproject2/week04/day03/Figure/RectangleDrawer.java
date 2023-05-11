@@ -1,6 +1,6 @@
-package com.example.javaproject2.week04.day03;
+package com.example.javaproject2.week04.day03.Figure;
 
-public class RectangleDrawer extends ShapeDrawer2{
+public class RectangleDrawer extends ShapeDrawer2 {
     @Override
     public String makeLine(int height, int i) {
 

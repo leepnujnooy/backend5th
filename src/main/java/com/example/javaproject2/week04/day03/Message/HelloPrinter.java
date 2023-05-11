@@ -1,5 +1,7 @@
 package com.example.javaproject2.week04.day03.Message;
 
+import java.io.IOException;
+
 public class HelloPrinter {
 
     StringPrinter stringPrinter;
@@ -14,13 +16,13 @@ public class HelloPrinter {
 //        System.out.println(message);
 //    }
 
-    public void repeatMessage(int n, String message){
-        for (int i = 0; i < n; i++) {
-            stringPrinter.print(message);
-        }
+    public void repeatMessage(String message,int i) throws IOException {
+        stringPrinter.print(message,i);
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         HelloPrinter hp = new HelloPrinter(new ConsolePrinter());
-        hp.repeatMessage(5,"안녕하세요");
+        hp.repeatMessage("안녕하세요",5);
+        HelloPrinter hp2 = new HelloPrinter((new FilePrinter()));
+        hp2.repeatMessage("안녕하세요",5);
     }
 }

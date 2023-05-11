@@ -1,8 +1,8 @@
-package com.example.javaproject2.week04.day03;
+package com.example.javaproject2.week04.day03.Figure;
 
 import com.example.javaproject2.week04.day02.ShapeDrawer;
 
-import static com.example.javaproject2.week04.day03.DrawDiamond.getRepeatedSymbol;
+import static com.example.javaproject2.week04.day03.Figure.DrawDiamond.getRepeatedSymbol;
 
 public class DiamondDrawer extends ShapeDrawer {
     @Override
