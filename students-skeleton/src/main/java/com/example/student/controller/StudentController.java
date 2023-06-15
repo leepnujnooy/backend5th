@@ -1,5 +1,6 @@
-package com.example.student;
+package com.example.student.controller;
 
+import com.example.student.service.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

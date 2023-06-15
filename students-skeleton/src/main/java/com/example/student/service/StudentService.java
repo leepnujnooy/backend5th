@@ -1,4 +1,4 @@
-package com.example.student;
+package com.example.student.service;
 
 import com.example.student.dto.StudentDto;
 import com.example.student.entity.StudentEntity;
@@ -30,7 +30,7 @@ public class StudentService {
         Optional<StudentEntity> studentEntityOptional = studentRepository.findById(id);
 
         if(studentEntityOptional.isPresent()){
-            return StudentDto.convert(studentEntityOptional.get());
+            return StudentDto.convertEntityToDto(studentEntityOptional.get());
         }
         else throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 
@@ -41,12 +41,9 @@ public class StudentService {
         //모든 entity 조회
         List<StudentDto> studentDtoList = new ArrayList<>();
 
-
-
         for(StudentEntity studentEntity : studentRepository.findAll()){
-            studentDtoList.add(StudentDto.convert(studentEntity));
+            studentDtoList.add(StudentDto.convertEntityToDto(studentEntity));
         }
-
         return studentDtoList;
 
     }
