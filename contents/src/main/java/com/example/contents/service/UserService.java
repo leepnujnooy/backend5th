@@ -3,6 +3,8 @@ package com.example.contents.service;
 
 import com.example.contents.dto.UserDto;
 import com.example.contents.entity.UserEntity;
+import com.example.contents.exceptions.UserNotFoundException;
+import com.example.contents.exceptions.UsernameExistException;
 import com.example.contents.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +30,7 @@ public class UserService {
     public UserDto createUser(UserDto dto) {
         //username 중복여부 확인
         if(repository.existsByUsername(dto.getUsername())) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT);
+            throw new UsernameExistException();
         }
 
         UserEntity userEntity = new UserEntity();
@@ -43,14 +45,11 @@ public class UserService {
     // readUserByUsername
     public UserDto readUserByUsername(String username) {
 
-//        if(repository.existsByUsername(username)){
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-//        }
 
         Optional<UserEntity> optionalUserEntity = repository.findByUsername(username);
 
         if(optionalUserEntity.isEmpty()){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new UserNotFoundException();
         }
 
         UserEntity userEntity = optionalUserEntity.get();
@@ -60,7 +59,24 @@ public class UserService {
     // updateUser
     public UserDto updateUser(Long id, UserDto dto) {
         //update user 로
-        throw new ResponseStatusException(HttpStatus.NOT_IMPLEMENTED);
+        Optional<UserEntity> optionalUserEntity = repository.findById(id);
+
+        if(optionalUserEntity.isEmpty()){
+            throw new UserNotFoundException();
+        }
+
+        UserEntity modifiedUserEntity = optionalUserEntity.get();
+
+        if(repository.existsByUsername(dto.getUsername())){
+            throw new UsernameExistException();
+        }
+
+        modifiedUserEntity.setUsername(dto.getUsername());
+        modifiedUserEntity.setBio(dto.getBio());
+        modifiedUserEntity.setEmail(dto.getEmail());
+        modifiedUserEntity.setPhone(dto.getPhone());
+
+        return UserDto.fromEntity(modifiedUserEntity);
     }
 
 

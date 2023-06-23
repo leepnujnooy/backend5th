@@ -1,5 +1,6 @@
 package com.example.contents.controller;
 
+import com.example.contents.dto.ResponseDto;
 import com.example.contents.dto.UserDto;
 import com.example.contents.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -52,4 +53,15 @@ public class UserController {
     ) {
         return service.updateUserAvatar(id, avatarImage);
     }
+
+
+//    //컨트롤러 내부에서 지정된 예외가 발생했을 때 실행하는 메소드에 사용되는 Annotation
+//    @ExceptionHandler(IllegalStateException.class)
+//    public ResponseDto handleIllegalState(IllegalStateException exception){
+//        log.error(exception.getMessage());
+//        ResponseDto responseDto = new ResponseDto();
+//        responseDto.setMessage("??? : 넌 못지나간다.");
+//
+//        return responseDto;
+//    }
 }
