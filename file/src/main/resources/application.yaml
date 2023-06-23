@@ -1,0 +1,9 @@
+spring:
+  mvc:
+    static-path-pattern: /static/**
+    #기본적으로는 도메인 뒤에 바로 static 안에 있는 폴더명 적으면 갔는데, /static/~~.js 라고 경로를변경하는거
+
+  web:
+    resources:
+      # 스프링이 정적파일 요청을 받을때 그파일을 찾는 경로들
+      static-locations: file:media/,classpath:/static

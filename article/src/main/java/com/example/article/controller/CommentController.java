@@ -20,7 +20,7 @@ public class CommentController {
     //POST 댓글 생성
     //articles/{articlesId}/comments
     @PostMapping
-    public CommentDto create(@PathVariable("articleId")Long articleId, @RequestBody CommentDto commentDto){
+    public CommentDto create(@PathVariable("articleId")Long articleId, @RequestBody CommentDto commentDto){//@RequestBody를 안걸어주면 http 요청의 바디 에 있는거를 객체에 넣어주지 못한다.
         return commentService.createComment(articleId , commentDto);
     }
 
