@@ -42,7 +42,19 @@ public class UserService {
 
     // readUserByUsername
     public UserDto readUserByUsername(String username) {
-        throw new ResponseStatusException(HttpStatus.NOT_IMPLEMENTED);
+
+//        if(repository.existsByUsername(username)){
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+//        }
+
+        Optional<UserEntity> optionalUserEntity = repository.findByUsername(username);
+
+        if(optionalUserEntity.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+
+        UserEntity userEntity = optionalUserEntity.get();
+        return UserDto.fromEntity(userEntity);
     }
 
     // updateUser
