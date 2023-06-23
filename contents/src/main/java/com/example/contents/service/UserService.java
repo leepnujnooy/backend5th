@@ -6,6 +6,7 @@ import com.example.contents.entity.UserEntity;
 import com.example.contents.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,7 +26,18 @@ public class UserService {
 
     // createUser
     public UserDto createUser(UserDto dto) {
-        throw new ResponseStatusException(HttpStatus.NOT_IMPLEMENTED);
+        //username 중복여부 확인
+        if(repository.existsByUsername(dto.getUsername())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT);
+        }
+
+        UserEntity userEntity = new UserEntity();
+        userEntity.setUsername(dto.getUsername());
+        userEntity.setEmail(dto.getEmail());
+        userEntity.setBio(dto.getBio());
+        userEntity.setPhone(dto.getPhone());
+
+        return UserDto.fromEntity(repository.save(userEntity));
     }
 
     // readUserByUsername
@@ -35,9 +47,19 @@ public class UserService {
 
     // updateUser
     public UserDto updateUser(Long id, UserDto dto) {
-
+        //update user 로
         throw new ResponseStatusException(HttpStatus.NOT_IMPLEMENTED);
     }
+
+
+
+
+
+
+
+
+
+
 
     // updateUserAvatar
     public UserDto updateUserAvatar(Long id, MultipartFile avatarImage) {
