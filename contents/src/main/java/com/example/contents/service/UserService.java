@@ -67,11 +67,13 @@ public class UserService {
 
         UserEntity modifiedUserEntity = optionalUserEntity.get();
 
-        if(repository.existsByUsername(dto.getUsername())){
-            throw new UsernameExistException();
-        }
 
-        modifiedUserEntity.setUsername(dto.getUsername());
+//        if(repository.existsByUsername(dto.getUsername())){
+//            throw new UsernameExistException();
+//        }
+//
+//        modifiedUserEntity.setUsername(dto.getUsername());
+
         modifiedUserEntity.setBio(dto.getBio());
         modifiedUserEntity.setEmail(dto.getEmail());
         modifiedUserEntity.setPhone(dto.getPhone());

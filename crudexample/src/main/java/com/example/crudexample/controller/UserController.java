@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class UserController {
 
     @GetMapping("/")
-    public String home(){
+    public String 메인화면(){
         return "home";
     }
 
     @GetMapping("/{name}")
-    public String greeting(@PathVariable("name") String name, Model model){
+    public String 인사(@PathVariable("name") String name, Model model){
         model.addAttribute("name",name);
         return "home";
     }
