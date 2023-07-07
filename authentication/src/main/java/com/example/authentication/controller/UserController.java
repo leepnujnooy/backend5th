@@ -3,7 +3,9 @@ package com.example.authentication.controller;
 
 import com.example.authentication.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +25,8 @@ public class UserController {
 
     //로그인 후 페이지
     @GetMapping("/my-profile")
-    public String profileForm(){
+    public String profileForm(Model model, Authentication authentication){
+        model.addAttribute("username", authentication.getName());
         return "my-profile";
     }
 
