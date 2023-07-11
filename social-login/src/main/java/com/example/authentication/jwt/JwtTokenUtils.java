@@ -58,7 +58,7 @@ public class JwtTokenUtils {
         //알맞은 JWT 면 참 . 아니면 거짓
         //parseClaimsJws : 아모화된 JWT 를 해석하기 위한 메소드
         try{
-            jwtParser.parseClaimsJwt(token);
+            jwtParser.parseClaimsJws(token);
             return true;
         } catch (Exception e) {
             return false;
@@ -68,7 +68,7 @@ public class JwtTokenUtils {
     //JWT를 인자로 받고, 그 JWT를 해석해서 사용자 정보를 회수하는 메서드
     public Claims parseClaims(String token){
         return jwtParser
-                .parseClaimsJwt(token)
+                .parseClaimsJws(token)
                 .getBody();
     }
 

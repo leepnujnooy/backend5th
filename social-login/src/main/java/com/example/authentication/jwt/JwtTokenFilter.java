@@ -6,6 +6,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
@@ -20,13 +21,10 @@ import java.util.ArrayList;
 
 @Slf4j
 @Component
+@RequiredArgsConstructor
 //사용자가 헤더에 포함한 JWT 를 해석하고, 그에 따라 사용자가 인증된 상태인지를 확인하는 용도로 사용
 public class JwtTokenFilter extends OncePerRequestFilter { //비동기 , 폼 등 데이터 요청시 필터를 한번만 거치도록해주는 인터파이스
     private final JwtTokenUtils jwtTokenUtils;
-
-    public JwtTokenFilter(JwtTokenUtils jwtTokenUtils) {
-        this.jwtTokenUtils = jwtTokenUtils;
-    }
 
     @Override
     protected void doFilterInternal(
@@ -53,7 +51,7 @@ public class JwtTokenFilter extends OncePerRequestFilter { //비동기 , 폼 등
                         .getSubject();
 
                 //사용자 인증 정보 생성
-                AbstractAuthenticationToken abstractAuthenticationToken =
+                AbstractAuthenticationToken authenticationToken =
                         new UsernamePasswordAuthenticationToken(
                                 CustomUserDetails.builder()
                                         .username(username)
@@ -61,8 +59,7 @@ public class JwtTokenFilter extends OncePerRequestFilter { //비동기 , 폼 등
                                 token,
                                 new ArrayList<>()
                         );
-
-                securityContext.setAuthentication(abstractAuthenticationToken);
+                securityContext.setAuthentication(authenticationToken);
                 SecurityContextHolder.setContext(securityContext);
             }
             else{

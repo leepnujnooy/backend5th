@@ -17,12 +17,18 @@ public class CustomUserDetails implements UserDetails {
     private Long id;
     private String username;
     private String password;
+    @Getter
     private String nickname;
     @Getter
     private String email;
     @Getter
     private String phone;
+    @Getter
     private String address;
+    @Getter
+    private String provider;
+    @Getter
+    private String providerId;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
