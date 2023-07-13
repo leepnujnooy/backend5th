@@ -18,6 +18,13 @@ public class ChatHandler extends TextWebSocketHandler {
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         sessions.add(session);
     }
+    @Override
+    // When Message Sent
+    protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
+        for (WebSocketSession connected: sessions) {
+            connected.sendMessage(message);
+        }
+    }
 
     @Override
     // When WebSocket Connect Terminated
