@@ -45,6 +45,9 @@ public class JpaUserDetailsManager implements UserDetailsManager {
 
     @Override
     //[선택] 새로운 사용자를 저장하는 메소드
+    /**
+     재미있는 기능
+     */
     public void createUser(UserDetails userDetails) {
         if(this.userExists(userDetails.getUsername())){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
