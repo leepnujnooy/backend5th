@@ -39,6 +39,7 @@ public class JwtTokenFilter extends OncePerRequestFilter { //비동기 , 폼 등
         if(authHeader != null && authHeader.startsWith("Bearer ")){
             //JWT 토큰 정보를 회수하여 정상적인 놈인지 확인
             String token = authHeader.split(" ")[1];
+
             if(jwtTokenUtils.validate(token)){
                 //웹상에서 많은 예시
                 //SecurityContextHolder.getContext().setAuthentication();
