@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "students")
+@Table(name = "student")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,5 +24,12 @@ public class Student {
     private String lastName;
 
     @ManyToMany
+    @JoinTable(
+            name = "enrolling_lectures",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "lecture_id"))
     private List<Lecture> attending;
+
+    @ManyToOne
+    private Instructor advisor;
 }

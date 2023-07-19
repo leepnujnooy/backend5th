@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "lectures")
+@Table(name = "lecture")
 public class Lecture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +30,7 @@ public class Lecture {
     private Integer endTime;
 
     @ManyToOne
-    @JoinColumn(name = "instructor")
+    @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 
     @ManyToMany(mappedBy = "attending")

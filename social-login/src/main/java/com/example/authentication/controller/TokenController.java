@@ -45,9 +45,7 @@ public class TokenController {
         //평문 비밀번호와 암호화 비밀번호를 비교할 수 있다.
 
         if(!passwordEncoder.matches(jwtRequestDTO.getPassword(),userDetails.getPassword())){
-
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
-
          }
 
         JwtTokenDTO response = new JwtTokenDTO();

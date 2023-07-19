@@ -8,12 +8,10 @@ import com.example.relations.repository.LectureRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -47,6 +45,15 @@ public class LectureController {
         // 그냥 Java 객체 쓰듯이
         lecture.setInstructor(instructor);
         lectureRepository.save(lecture);
+    }
+
+    @GetMapping("/test")
+    public void test(){
+        List<Lecture> lectureList = lectureRepository.lectureByTime("tue",null,null);
+        for (Lecture lecture : lectureList
+             ) {
+            log.info(lecture.getCourseName());
+        }
     }
 }
 
